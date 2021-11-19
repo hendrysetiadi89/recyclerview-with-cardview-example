@@ -2,8 +2,10 @@ package com.example.recyclercarddemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -32,7 +34,11 @@ public class MainActivity extends AppCompatActivity {
         adapter = new Adapter(this,items);
         recyclerView.setAdapter(adapter);
 
-
+        VerticalSpaceDecoration decoration = new VerticalSpaceDecoration(
+                (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                        16, getResources().getDisplayMetrics())
+        );
+        recyclerView.addItemDecoration(decoration);
 
     }
 }
